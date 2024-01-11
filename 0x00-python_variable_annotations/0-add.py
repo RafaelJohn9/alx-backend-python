@@ -2,6 +2,8 @@
 """
 a typed annotation function
 """
+
+
 def add(a: float, b: float) -> float:
     """
     adds the two floats
