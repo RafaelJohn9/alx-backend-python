@@ -2,7 +2,7 @@
 """
 coroutine that calculates run on time
 """
-import asyncio
+from asyncio import gather
 from time import perf_counter
 async_comprehension = __import__('1-async_comprehension').async_comprehension
 
@@ -14,4 +14,4 @@ async def measure_runtime() -> float:
     """
     start_time = perf_counter()
     await gather(*(async_comprehension() for _ in range(4)))
-    return perf_counter - start
+    return perf_counter() - start_time
