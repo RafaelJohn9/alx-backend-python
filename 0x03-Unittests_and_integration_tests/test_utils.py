@@ -34,3 +34,18 @@ class TestAccessNestedMap(TestCase):
         """
         expected_result = utils.access_nested_map(nested_map, path)
         self.assertEqual(result, expected_result)
+
+    @parameterized.expand([
+        ({}, ("a",)),
+        ({"a": 1}, ("a", "b"))
+        ])
+    def test_access_nested_map_exception(
+                                        self,
+                                        nested_map: Mapping,
+                                        path: Sequence
+                                        ) -> None:
+        """
+        tests the exception raised by accss nested map
+        """
+        with self.assertRaises(KeyError):
+            utils.access_nested_map(nested_map, path)
