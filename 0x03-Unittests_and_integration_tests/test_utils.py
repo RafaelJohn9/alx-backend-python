@@ -10,6 +10,7 @@ from typing import (
         Dict,
         Callable
         )
+import unittest
 from unittest import TestCase
 from unittest.mock import patch, Mock
 import utils
@@ -52,7 +53,7 @@ class TestAccessNestedMap(TestCase):
             utils.access_nested_map(nested_map, path)
 
 
-class TestGetJson(TestCase):
+class TestGetJson(unittest.TestCase):
     """
     tests the getjson function
     """
