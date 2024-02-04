@@ -52,3 +52,16 @@ class TestGithubOrgClient(unittest.TestCase):
         instance = GithubOrgClient("dummy")
         result = instance.public_repos("1")
         self.assertEqual(result, [])
+
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license"),
+        ({"license": {"key": "other_license"}}, "my_license")
+        ])
+    def test_has_license(self, repo_dict, license_key):
+        """
+        tests has_license static method
+        """
+        instance = GithubOrgClient("mock")
+        expected = repo_dict["license"]["key"] == "my_license"
+        self.assertEqual(instance.has_license(repo_dict, license_key),
+                         expected)
