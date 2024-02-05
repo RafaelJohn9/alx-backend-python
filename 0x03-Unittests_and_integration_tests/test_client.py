@@ -89,7 +89,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         """Tear down class method to stop the patcher."""
         cls.get_patcher.stop()
 
-    def test_public_repos_integration(self):
+    def test_public_repos_with_license(self):
         """Integration test for GithubOrgClient.public_repos method."""
         test_instance = GithubOrgClient('test')
         result = test_instance.public_repos("apache-2.0")
