@@ -91,5 +91,5 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def test_public_repos_integration(self):
         """Integration test for GithubOrgClient.public_repos method."""
         test_instance = GithubOrgClient('test')
-        result = test_instance.public_repos()
-        self.assertEqual(result, self.expected_repos)
+        result = test_instance.public_repos("apache-2.0")
+        self.assertEqual(result, self.apache2_repos)
